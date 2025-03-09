@@ -1,0 +1,3 @@
+C:/Users/AzadMammadov/Documents/GitHub/FinancialCalculator/cmake-build-debug/CMakeFiles/FinancialCalculator.dir
+C:/Users/AzadMammadov/Documents/GitHub/FinancialCalculator/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/AzadMammadov/Documents/GitHub/FinancialCalculator/cmake-build-debug/CMakeFiles/rebuild_cache.dir

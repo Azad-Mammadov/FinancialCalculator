@@ -45,5 +45,8 @@ int main(){
    monthlyPayment myPayment(10, 100000, 8);
 
    myPayment.printPayment();
+
+   std::cout << "Press Enter to exit\n";
+   std::cin.get();
    return 0;
 }
