@@ -6,43 +6,43 @@
 
 class monthlyPayment {
   private:
-    int m_y{}; // number of years for loan
-    int n {m_y*12}; // total number of payments
 
-    double m_p{}; // loan amount
-    //double m_r{}; //monthly interest rate
     double m_art{}; // annual interest rate
+    double m_p{}; // loan amount
+    int m_y{}; // number of years for loan
 
   public:
 
-    monthlyPayment(double art, int p, int y): m_art{art}, m_p{p}, m_y{y} {}
+    monthlyPayment(double art, double p, int y): m_art{art}, m_p{p}, m_y{y} {}
 
 
   // - functions ------------------------------------- +
     double calcMonthlyPayment() {
 
-                             double const r = m_art/12*100; // monthly interest rate
-                             double numerator = m_p*r*std::pow(1+r,2);
-                             double denominator = std::pow(1+r,2)-1;
+                             double const r = m_art/(12*100); // monthly interest rate
+
+                             double n = m_y*12; // number of payments
+
+                             double numerator = m_p * r * std::pow(1 + r,n);
+                             double denominator = std::pow(1 + r,n)-1;
                              return numerator/denominator;
   }
 
+    double totalInterest () {
+      double monthlyPayment = calcMonthlyPayment();
+      int totalMonths = m_y*12;
+      return (monthlyPayment*totalMonths) - m_p;
+    }
+
   void printPayment () {
     std::cout << "Your monthly payment by default is: " << calcMonthlyPayment() << std::endl;
+    std::cout << "Bank's total interest is: " << totalInterest() << std::endl;
   }
 
-  //  my overload ------------------------------------- +
-  // double operator^(double base, int exp){
-  //   double result = 1;
-  //   for (int i = 1; i <= exp; i++) {
-  //     result *= base;
-  //   }
-  //   return result;
-  //   }
 };
 
 int main(){
-   monthlyPayment myPayment(8, 100000, 10);
+   monthlyPayment myPayment(10, 100000, 8);
 
    myPayment.printPayment();
    return 0;
